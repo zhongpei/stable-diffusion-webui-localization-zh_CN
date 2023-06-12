@@ -8,7 +8,7 @@ def json2dict(json_file):
 
 def dict2json(dict_data, json_file):
     with open(json_file, 'w+') as f:
-        json.dump(dict_data, f, indent=4, ensure_ascii=False)
+        json.dump(dict_data, f, indent=4, ensure_ascii=False, sort_keys=True)
 
 
 def merge_dict(dict1, dict2):
@@ -29,5 +29,5 @@ def merge_json(json_file1, json_file2):
 if __name__ == '__main__':
     json_file1 = './localizations/zh_CN.json'
     json_file2 = './stable-diffusion-webui-localization-zh_Hans/localizations/zh-Hans (Stable).json'
-    data = merge_json(json_file1, json_file2)
+    data = merge_json(json_file2, json_file1)
     dict2json(data, "./localizations/zh_CN_merge.json")
